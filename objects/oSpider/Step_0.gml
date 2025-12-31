@@ -1,4 +1,3 @@
-/// @description
 x = mouse_x;
 y = mouse_y;
 
@@ -7,11 +6,11 @@ var armTriggerDist = 40;
 
 var largestInd = -1;
 var largestD = 0;
-for (var i = 0; i < armNum; i ++)
-{
+var currArmNum = armNum;
+for (var i = 0; i < currArmNum; i++){
 	var p = armPos[i];
 	var prev = armPrevPos[i];
-	var a = current_time / 3000 + i / armNum * 6 * pi;
+	var a = current_time / 3000 + i / currArmNum * 6 * pi;
 	armTarget[i] = [x + 150 * cos(a), y + 150 * sin(a), 0];
 	var target = armTarget[i];
 	if (armMoving[i] < 0)
