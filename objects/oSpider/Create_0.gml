@@ -4,7 +4,14 @@ armSegmentLength1 = 150;
 armSegmentLength2 = 130;
 armsMoving = 0;
 maxArmsMoving = 3;
+
 armTarget = [];
+armPos = [];
+armPrevPos = [];
+armMoving = [];
+armSpeed = [];
+armOvershoot = [];
+
 for (var i = 0; i < armNum; i ++)
 {
 	var a = i / armNum * 4 * pi;
