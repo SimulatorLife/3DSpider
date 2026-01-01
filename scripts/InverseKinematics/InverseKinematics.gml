@@ -24,7 +24,9 @@ function twojointik(x1, y1, z1, x2dir, y2dir, z2dir, x3, y3, z3, length1, length
 	    Script made by TheSnidr 2020
 	    www.TheSnidr.com
 	*/
-    // Limit the distance from p1 to p3 var P1toP3x = x3 - x1;
+	
+    // Limit the distance from p1 to p3
+	var P1toP3x = x3 - x1;
     var P1toP3y = y3 - y1;
     var P1toP3z = z3 - z1;
     var p1_p3   = sqrt(P1toP3x * P1toP3x + P1toP3y * P1toP3y + P1toP3z * P1toP3z);
@@ -40,28 +42,29 @@ function twojointik(x1, y1, z1, x2dir, y2dir, z2dir, x3, y3, z3, length1, length
         p1_p3 = a;
     }
 
-    /* 
- * The idea behind the algorithm is to imagine a sphere placed at P1 with radius of the first bone, and
- * another sphere at P3 with the radius of the second bone. The intersection between these spheres is a
- * circle representing all the possible placements of P2.
- * The first step is to find the middle point of this circle, and the radius of this intersection circle
- */ var p1_p3sqr           = p1_p3 *
-    p1_p3;
+   /* 
+    * The idea behind the algorithm is to imagine a sphere placed at P1 with radius of the first bone, and
+    * another sphere at P3 with the radius of the second bone. The intersection between these spheres is a
+    * circle representing all the possible placements of P2.
+    * The first step is to find the middle point of this circle, and the radius of this intersection circle
+    */
+	
+	var p1_p3sqr           = p1_p3 * p1_p3;
     var p2_p3sqr           = length2 * length2;
     var p1_p2sqr           = length1 * length1;
     var intersectionRadius = sqrt(p2_p3sqr - (sqr(p1_p2sqr - p2_p3sqr - p1_p3sqr) / (4 * p1_p3sqr)));
     var l                  = sqrt(p1_p2sqr - (intersectionRadius * intersectionRadius)) / p1_p3;
     if (
         p1_p3sqr < p2_p3sqr - p1_p2sqr
-    ) { //If P3 is too close to P1, the "middle" point is on the other side of P1, and l must be negative
+    ) { // If P3 is too close to P1, the "middle" point is on the other side of P1, and l must be negative
         l = -l;
     }
     var middleX = x1 + (P1toP3x * l);
     var middleY = y1 + (P1toP3y * l);
     var middleZ = z1 + (P1toP3z * l);
 
-    // Orthogonalize the P2 direction to the vector from P1 to P3 var dp = ((x2dir * P1toP3x) + (y2dir * P1toP3y) +
-    (z2dir * P1toP3z)) / p1_p3sqr;
+    // Orthogonalize the P2 direction to the vector from P1 to P3
+	var dp = ((x2dir * P1toP3x) + (y2dir * P1toP3y) + (z2dir * P1toP3z)) / p1_p3sqr;
     var mx = x2dir - (P1toP3x * dp);
     var my = y2dir - (P1toP3y * dp);
     var mz = z2dir - (P1toP3z * dp);
@@ -70,7 +73,8 @@ function twojointik(x1, y1, z1, x2dir, y2dir, z2dir, x3, y3, z3, length1, length
         m = intersectionRadius / sqrt(m);
     }
 
-    // Displace the middle node to its new position var x2 = middleX + (mx * m);
+    // Displace the middle node to its new position
+	var x2 = middleX + (mx * m);
     var y2 = middleY + (my * m);
     var z2 = middleZ + (mz * m);
 
