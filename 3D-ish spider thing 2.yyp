@@ -10,12 +10,14 @@
   },
   "defaultScriptType":1,
   "Folders":[],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+    {"link":"io.gamemaker.gm_filter_tintfilter-1.0.0","name":"io.gamemaker.gm_filter_tintfilter-1.0.0","path":"io.gamemaker.gm_filter_tintfilter-1.0.0.yyp",},
+  ],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"3D-ish spider thing 2",
   "resources":[
