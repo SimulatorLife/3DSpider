@@ -63,7 +63,7 @@
             "caseStyle": "upper_snake"
           },
           "variable": {
-              "caseStyle": "lower_snake"
+            "caseStyle": "lower_snake"
           }
         },
         "exclusivePrefixes": {
